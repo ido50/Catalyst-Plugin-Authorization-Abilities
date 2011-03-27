@@ -1,6 +1,8 @@
 Revision history for Catalyst::Plugin::Authorization::Abilities
 
 {{$NEXT}}
+
+v0.30.0   2011-03-27 22:43:31 Asia/Jerusalem
 	- Added support for recursive role inheritance
 	- Restructured module and its documentation
 	- Repackaged with Dist::Zilla
