@@ -1,0 +1,10 @@
+Revision history for Perl extension Catalyst::Plugin::Authorization::Abilities
+
+0.02    2009-05-04 21:00:00
+	- Added the ability to check if that a user belongs to specific roles with c->check_user_roles.
+	- Added the ability to assign roles into roles (see README).
+	- Fixed minor errors in the documentation.
+	- Added relationships for MyApp::Schema::Roles that I forgot to write in the documentation.
+
+0.01    2009-04-20 20:20:00
+        - Initial release.
