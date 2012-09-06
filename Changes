@@ -1,6 +1,7 @@
 Revision history for Catalyst::Plugin::Authorization::Abilities
 
 {{$NEXT}}
+	- Added a complete test suite (courtesy Dabg)
 
 v0.30.0   2011-03-27 22:43:31 Asia/Jerusalem
 	- Added support for recursive role inheritance

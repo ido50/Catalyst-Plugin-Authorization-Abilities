@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 use lib "t/lib";
-use Test::More 'no_plan';
+use Test::More;
 use HTTP::Request::Common;
 
 BEGIN{
@@ -13,7 +13,10 @@ BEGIN{
         require Catalyst::Plugin::Authentication;
         require Catalyst::Plugin::Session;
         require Catalyst::Plugin::Session::State::Cookie;
-    } or plan 'skip_all' => "A bunch of plugins are required for this test... Look in the source if you really care... $@";
+        require CatalystX::SimpleLogin;
+        require Catalyst::Plugin::Session::Store::FastMmap;
+        require Catalyst::Authentication::Store::DBIx::Class;
+    } or plan 'skip_all' => "A bunch of plugins and modules are required for this test... Look in the source if you really care... $@";
 };
 
 
@@ -98,5 +101,4 @@ sub login{
   like($res2->content, qr/Welcome $user/, "Logged as $user");
 }
 
-
-
+done_testing();

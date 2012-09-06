@@ -1,17 +1,19 @@
 #!/usr/bin/env perl
 use strict;
 use warnings;
-use Test::More 'no_plan';
+use Test::More;
 
 BEGIN {
 
     $ENV{DBIC_OVERWRITE_HELPER_METHODS_OK} = 1;
 
-    eval 'use DBD::SQLite';
-    plan skip_all => 'need DBD::SQLite' if $@;
-
-    eval 'use SQL::Translator';
-    plan skip_all => 'need SQL::Translator' if $@;
+    eval {
+        require DBD::SQLite;
+        require SQL::Translator;
+        require UNIVERSAL::require;
+        require DBIx::Class::DateTime::Epoch;
+        require DBIx::Class::EncodedColumn;
+    } or plan 'skip_all' => "A bunch of plugins and modules are required for this test... Look in the source if you really care... $@";
 
 }
 
@@ -213,3 +215,5 @@ is_deeply( \@user_roles, ['member', 'moderator', 'r1'],
 # rolerole       : r1 <= r2
 #                  r2 <= r3
 # role_action    : r3 <= can_recursive_roles
+
+done_testing();
